@@ -16,9 +16,9 @@ cols, rows = 64, 48
 w = width//cols
 h = height//rows
 
-grid = []
+grid,path = [],[]
 queue, visited = deque(), []
-path = []
+
 
 class Spot:
     def __init__(self, i, j):
@@ -26,8 +26,8 @@ class Spot:
         self.f, self.g, self.h = 0, 0, 0
         self.neighbors = []
         self.prev = None
-        self.wall = False
-        self.visited = False
+        self.wall,self.visited = False,False
+         
         # if random.randint(0, 100) < 20:
         #     self.wall = True
         
@@ -86,9 +86,9 @@ queue.append(start)
 start.visited = True
 
 def main():
-    flag = False
+    flag, startflag = False
     noflag = True
-    startflag = False
+    
 
     while True:
         for event in pygame.event.get():
